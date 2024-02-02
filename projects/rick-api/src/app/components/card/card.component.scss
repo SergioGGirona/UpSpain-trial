@@ -1,4 +1,10 @@
 :host {
+  width: 12rem;
+  height: 20rem;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   img {
     height: 10rem;
     background-color: #bfde42;
@@ -6,11 +12,13 @@
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    margin: 0.5rem 0 1rem;
   }
   .cardInfo {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 95%;
     h4 {
       font-weight: 600;
       border-bottom: 1px solid #203745;
@@ -31,6 +39,9 @@
     }
   }
   button {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
     background-color: #203745;
     border: #41b4c9 solid 2px;
     border-radius: 5px;
@@ -40,10 +51,10 @@
     transition: all ease 0.5s;
   }
   button:hover {
-    background-color: #41b4c9;
-    border: #203745 solid 2px;
+    border: #bfde42 solid 2px;
   }
   button:active {
+    background-color: #41b4c9;
     transform: translate(2px, 5px);
   }
 }

@@ -2,7 +2,7 @@
   ul {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 2rem;
     li {
@@ -13,6 +13,7 @@
       padding: 1rem;
       display: flex;
       flex-direction: column;
+      align-items: center;
     }
     li:hover {
       transform: translate(-5px, -5px);

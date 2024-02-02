@@ -1,4 +1,7 @@
 <ul>
-  <li><trial-card /></li>
-  <li><trial-card /></li>
+  @for (character of this.characters; track character.id) {
+  <li [title]="character.id" [id]="character.id">
+    <trial-card [character]="character" />
+  </li>
+  }
 </ul>
