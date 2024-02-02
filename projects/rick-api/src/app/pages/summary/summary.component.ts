@@ -3,13 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      summary works!
-    </p>
-  `,
-  styles: ``
+  templateUrl: './summary.component.html',
+  styleUrl: './summary.component.scss',
 })
-export class SummaryComponent {
-
-}
+export class SummaryComponent {}

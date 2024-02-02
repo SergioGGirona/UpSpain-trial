@@ -1,0 +1,49 @@
+:host {
+  img {
+    height: 10rem;
+    background-color: #bfde42;
+    border: 1px solid #203745;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+  .cardInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h4 {
+      font-weight: 600;
+      border-bottom: 1px solid #203745;
+      font-size: 1.5rem;
+    }
+    .infoType {
+      display: flex;
+      gap: 5px;
+    }
+    .infoPlace {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      span,
+      p {
+        font-style: italic;
+      }
+    }
+  }
+  button {
+    background-color: #203745;
+    border: #41b4c9 solid 2px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    margin: 10px 0;
+    transition: all ease 0.5s;
+  }
+  button:hover {
+    background-color: #41b4c9;
+    border: #203745 solid 2px;
+  }
+  button:active {
+    transform: translate(2px, 5px);
+  }
+}

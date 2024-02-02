@@ -1,12 +1,21 @@
 :host {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  h1 {
-    font-size: 3em;
-    font-weight: 200;
-    color: white;
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    li {
+      background-color: #41b4c9;
+      border-radius: 10px;
+      filter: drop-shadow(5px 5px 10px #b7de4d);
+      transition: all 0.5s ease-out;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    li:hover {
+      transform: translate(-5px, -5px);
+    }
   }
 }
