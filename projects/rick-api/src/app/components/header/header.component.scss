@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  font-family: "Roboto", sans-serif;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.278);
+
+  backdrop-filter: invert(0);
+  mix-blend-mode: difference;
+  img {
+    width: 15rem;
+    filter: drop-shadow(0 5px 0px #b7de4d);
+  }
+  p {
+    font-family: "Roboto", sans-serif;
+    color: white;
+  }
+}
