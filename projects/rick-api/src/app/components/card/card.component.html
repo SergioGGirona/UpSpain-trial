@@ -1,9 +1,6 @@
 <img src="{{character.image}}" alt="Image of character">
 <div class="cardInfo">
-  <h4>{{character.name}}</h4>
-  <div class="infoType">
-    <span>{{character.species}}</span>
-    <span>{{character.type}}</span>
+  <div class="mainInfo">
     @if(character.gender === "Male") {
     <span>♂</span>
     } @else if(character.gender === "Female") {
@@ -13,11 +10,32 @@
     } @else {
     <span>?</span>
     }
+    <h4>{{character.name}}</h4>
+    <span class="characterType">{{character.type}}</span>
+
   </div>
-  <div class="infoPlace">
-    <span>{{character.status}}</span>
-    <p>{{character.origin.name}}</p>
-    <p>{{character.location.name}}</p>
+  <div class="secondaryInfo">
+    <div class="infoType">
+      <span>{{character.species}}</span>
+      <span>{{character.status}}</span>
+    </div>
+    <div class="infoPlace">
+      @if(character.origin.name === character.location.name ){
+      <p><em>Origin and location:</em> {{character.location.name}}</p>
+      } @else {
+      <p><em>Origin:</em> {{character.origin.name}}</p>
+      <p><em>Location:</em> {{character.location.name}}</p>
+      }
+    </div>
   </div>
 </div>
-<button ngAction="#">Edit</button>
+<button class="edit" type="button" (click)="handleEdit()" [class.pressed]="disabled">Edit</button>
+
+@if(this.editMode === true){
+<form *ngIf="editMode" class="updateForm" (ngSubmit)="handleSave()">
+  <input type="text" placeholder="{{character.name}}" [(ngModel)]="newName" name="newName">
+  <input type="text" placeholder="{{character.location.name}}" [(ngModel)]="newLocation" name="newLocation">
+  <input type="text" placeholder="Dead, Alive or unknown" [(ngModel)]="newStatus" name="newStatus">
+  <button type="submit">Save</button>
+</form>
+}

@@ -4,19 +4,40 @@
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 3rem;
+    padding: 0 3rem;
     li {
       background-color: #41b4c9;
       border-radius: 10px;
-      filter: drop-shadow(5px 5px 10px #b7de4d);
       transition: all 0.5s ease-out;
       padding: 1rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
+
+      view-timeline-name: --subjectReveal;
+      animation-timeline: --subjectReveal;
+      animation-name: appear;
+      animation-fill-mode: both;
+      animation-duration: 1ms;
     }
     li:hover {
       transform: translate(-5px, -5px);
+      filter: drop-shadow(5px 5px 10px #b7de4d);
     }
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translate(0, 10%);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0.2;
+    transform: translate(0, -10%);
   }
 }

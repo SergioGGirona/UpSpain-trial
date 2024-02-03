@@ -19,7 +19,6 @@ export class CharactersApiRepoService implements Repo<Character> {
       }),
     );
     if (!response) throw new Error('Error in the load.');
-    console.log(response);
     return response;
   }
 }
