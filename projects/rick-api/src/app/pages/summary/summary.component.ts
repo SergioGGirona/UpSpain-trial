@@ -15,7 +15,7 @@ export class SummaryComponent implements OnInit {
   }
   ngOnInit(): void {
     this.repo.getAll().subscribe((data) => {
-      this.characters = data.slice(0, 10);
+      this.characters = data.results.slice(0, 10);
     });
   }
 }
