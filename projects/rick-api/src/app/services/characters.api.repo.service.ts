@@ -30,4 +30,15 @@ export class CharactersApiRepoService {
     if (!response) throw new Error('Error in the new load.');
     return response;
   }
+  getFilteredCharacters(key: string, value: string) {
+    const filteredUrl = this.apiUrl + '/?' + key + '=' + value;
+    console.log(filteredUrl);
+    const response = this.http.get<ApiResponse>(filteredUrl).pipe(
+      map((data) => {
+        return data;
+      }),
+    );
+    if (!response) throw new Error('Error in the filter.');
+    return response;
+  }
 }

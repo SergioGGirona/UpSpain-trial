@@ -1,0 +1,23 @@
+:host {
+  details {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    font-style: none;
+    summary {
+      font-size: 1.5rem;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      span {
+        text-align: center;
+        text-shadow: #bfde42 1px 1px 5px;
+        cursor: pointer;
+        font-size: 2rem;
+        font-weight: 500;
+        width: 4rem;
+      }
+    }
+  }
+}

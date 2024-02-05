@@ -1,11 +1,13 @@
 import { Component, HostListener } from '@angular/core';
 import { CardsComponent } from '../../components/cards/cards.component';
+import { FiltersComponent } from '../../components/filters/filters.component';
 
 @Component({
   standalone: true,
-  imports: [CardsComponent],
+  imports: [CardsComponent, FiltersComponent],
   template: `
     <h1>Characters of C-137</h1>
+    <trial-filters />
     <trial-cards onscroll="windowScroll()"></trial-cards>
     <button class="scrollButton" (click)="goTop()">></button>
   `,
