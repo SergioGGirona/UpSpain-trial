@@ -15,3 +15,5 @@ Para ello, se abre en un popup (no alert) un formulario de edición para los cam
 ## 3.Crear una tabla resumen de los 10 primeros personajes (solo los datos principales, sin imagen).
 
 Se vuelve a hacer un GET a través del store y se ejecuta el método slice para quedarnos con los 10 primeros.
+
+Enlace al deploy: https://up-spain-trial.vercel.app/home

@@ -57,7 +57,6 @@ export class CharacterStoreService {
   }
 
   getCurrentFilter() {
-    console.log(this.currentFilter);
     return this.currentFilter;
   }
 
