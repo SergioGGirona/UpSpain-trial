@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: scroll;
   table {
     border: 2px solid rgb(140 140 140);
     border-color: #bfde42;
@@ -11,23 +12,28 @@
     margin: 2rem 1rem;
     border-collapse: separate;
     border-spacing: 5px;
-    color: #fff;
+    caption {
+      font-weight: 100;
+      font-size: 2rem;
+      padding: 0.5em;
+      text-shadow: 1px 1px 2px #41b4c9;
+      width: 100%;
+    }
+    td,
+    th {
+      padding: 1rem;
+      background: #fff;
+      color: #000;
+      transition: all 0.3s ease-in-out;
+    }
+    td:hover {
+      background-color: #203745;
+      color: white;
+    }
   }
-  caption {
-    font-weight: 100;
-    font-size: 2rem;
-    padding: 0.5em;
-    text-shadow: 1px 1px 2px #41b4c9;
-  }
-  td,
-  th {
-    padding: 1rem;
-    background: #fff;
-    color: #000;
-    transition: all 0.3s ease-in-out;
-  }
-  td:hover {
-    background-color: #203745;
-    color: white;
+}
+@media (width < 770px) {
+  :host {
+    display: block;
   }
 }

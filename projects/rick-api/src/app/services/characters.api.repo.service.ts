@@ -35,7 +35,6 @@ export class CharactersApiRepoService {
 
   getFilteredCharacters(key: string, value: string, page: number) {
     const filteredUrl = this.apiUrl + `/?page=${page}&${key}=${value}`;
-    console.log(filteredUrl);
     const response = this.http.get<ApiResponse>(filteredUrl).pipe(
       map((data) => {
         return data;

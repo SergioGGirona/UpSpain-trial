@@ -12,9 +12,13 @@ import { CharacterStoreService } from '../../services/character-store.service';
 export class FiltersComponent {
   selectedGender = '';
   @ViewChild('select') select!: ElementRef;
-  constructor(private characterStore: CharacterStoreService) {}
+  currentFilter: { key: string; value: string } | null;
+
+  constructor(private store: CharacterStoreService) {
+    this.currentFilter = null;
+  }
 
   handleFilter() {
-    this.characterStore.loadFilteredCharacters('gender', this.selectedGender);
+    this.store.loadFilteredCharacters('gender', this.selectedGender);
   }
 }

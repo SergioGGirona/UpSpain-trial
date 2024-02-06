@@ -43,5 +43,34 @@ export class CharacterStoreService {
       .subscribe((filteredCharacters) => {
         this.characters$.next(filteredCharacters.results);
       });
+    this.currentFilter = { key: key, value: value };
+    this.handleFilterChange(this.currentFilter.key, this.currentFilter.value);
+  }
+  handleFilterChange(key: string, value: string) {
+    if (key && value) {
+      this.currentFilter = { key, value };
+      return this.currentFilter;
+    } else {
+      this.currentFilter = null;
+      return;
+    }
+  }
+
+  getCurrentFilter() {
+    console.log(this.currentFilter);
+    return this.currentFilter;
+  }
+
+  loadMoreFilteredCharacters(key: string, value: string) {
+    this.actualPage = this.actualPage + 1;
+    if (key === this.currentFilter!.key && value === this.currentFilter?.value)
+      this.repo
+        .getFilteredCharacters(key, value, this.actualPage)
+        .subscribe((filteredCharacters) => {
+          const currentCharacters = this.characters$.getValue();
+          const newCharacters = filteredCharacters.results;
+          const updatedCharacters = [...currentCharacters, ...newCharacters];
+          this.characters$.next(updatedCharacters);
+        });
   }
 }

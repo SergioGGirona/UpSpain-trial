@@ -15,6 +15,7 @@ import { CardComponent } from '../card/card.component';
 export class CardsComponent implements OnInit {
   store = inject(CharacterStoreService);
   characters: Character[];
+
   constructor(private repo: CharactersApiRepoService) {
     this.characters = [];
   }
@@ -26,8 +27,14 @@ export class CardsComponent implements OnInit {
   }
 
   onScroll() {
-    this.store.loadMoreCharacters().subscribe((newCharacters) => {
-      this.characters.push(...newCharacters);
-    });
+    const currentFilter = this.store.getCurrentFilter();
+    if (currentFilter) {
+      const { key, value } = currentFilter;
+      this.store.loadMoreFilteredCharacters(key, value);
+    } else {
+      this.store.loadMoreCharacters().subscribe((newCharacters) => {
+        this.characters.push(...newCharacters);
+      });
+    }
   }
 }
