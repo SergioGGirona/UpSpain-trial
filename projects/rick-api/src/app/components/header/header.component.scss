@@ -19,3 +19,11 @@
     color: white;
   }
 }
+@media (width < 770px) {
+  :host {
+    flex-direction: column;
+    p {
+      padding: 0.5rem;
+    }
+  }
+}

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Character } from '../../model/character';
+import { CharacterStoreService } from '../../services/character-store.service';
 import { CharactersApiRepoService } from '../../services/characters.api.repo.service';
 
 @Component({
@@ -10,12 +11,15 @@ import { CharactersApiRepoService } from '../../services/characters.api.repo.ser
 })
 export class SummaryComponent implements OnInit {
   characters: Character[];
+  store = inject(CharacterStoreService);
+
   constructor(private repo: CharactersApiRepoService) {
     this.characters = [];
   }
   ngOnInit(): void {
-    this.repo.getAll().subscribe((data) => {
-      this.characters = data.results.slice(0, 10);
+    this.store.loadCharacters();
+    this.store.getState().data.subscribe((data) => {
+      this.characters = data.slice(0, 10);
     });
   }
 }

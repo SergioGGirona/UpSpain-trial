@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Character } from '../../model/character';
-import { CharactersApiRepoService } from '../../services/characters.api.repo.service';
+import { CharacterStoreService } from '../../services/character-store.service';
 
 @Component({
   selector: 'trial-filters',
@@ -13,20 +12,9 @@ import { CharactersApiRepoService } from '../../services/characters.api.repo.ser
 export class FiltersComponent {
   selectedGender = '';
   @ViewChild('select') select!: ElementRef;
-  characters: Character[];
-  constructor(private repo: CharactersApiRepoService) {
-    this.characters = [];
-  }
+  constructor(private characterStore: CharacterStoreService) {}
 
   handleFilter() {
-    this.repo
-      .getFilteredCharacters(
-        this.select.nativeElement.name,
-        this.selectedGender,
-      )
-      .subscribe((data) => {
-        this.characters = data.results;
-        console.log(this.characters);
-      });
+    this.characterStore.loadFilteredCharacters('gender', this.selectedGender);
   }
 }

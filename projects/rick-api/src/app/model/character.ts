@@ -11,10 +11,10 @@ export type ApiResponse = {
 export type Character = {
   id: string;
   name: string;
-  status: 'Alive' | 'Dead' | 'unknown';
+  status: string;
   species: string;
   type: string;
-  gender: 'Female' | 'Male' | 'Genderless' | 'unknown';
+  gender: string;
   origin: {
     name: string;
   };
@@ -23,4 +23,27 @@ export type Character = {
   };
   image: string;
   created: string;
+};
+
+export const initialState: ApiResponse = {
+  info: {
+    count: 826,
+    pages: 42,
+    next: 'https://rickandmortyapi.com/api/character?page=2',
+    prev: null,
+  },
+  results: [
+    {
+      id: '1',
+      name: '',
+      status: 'unknown',
+      species: '',
+      type: '',
+      gender: 'Male',
+      origin: { name: '' },
+      location: { name: '' },
+      image: '',
+      created: '',
+    },
+  ],
 };
